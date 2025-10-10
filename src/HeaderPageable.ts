@@ -13,16 +13,16 @@ export function parseRangeHeader(header: string): HeaderPageable {
         throw new Error("Header cannot be null or empty");
     }
     if (!RANGE_HEADER_PATTERN.test(header)) {
-        throw new Error(`Header \'${header}\' is not in the correct format. The format must be like \'Range: elements=0-9\'`);
+        throw new Error(`Header '${header}' is not in the correct format. The format must be like 'Range: elements=0-9'`);
     }
 
     const parts = header.substring(RANGE_HEADER_NAME.length + 2).split("=");
     const elementName = parts[0];
     const range = parts[1].split("-");
-    const start = parseInt(range[0], 10);
-    const end = parseInt(range[1], 10);
+    const start = Number.parseInt(range[0], 10);
+    const end = Number.parseInt(range[1], 10);
     if (end <= start) {
-        throw new Error(`Header \'${header}\' is not in the correct format. The end must be greater than the start`);
+        throw new Error(`Header '${header}' is not in the correct format. The end must be greater than the start`);
     }
     const size = end - start + 1;
     const page = start / size;
