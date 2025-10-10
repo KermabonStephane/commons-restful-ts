@@ -1,1 +1,1 @@
-export {HeaderPageable, parseRangeHeader, parseContentRangeHeader} from "./HeaderPageable"
+export {HeaderPageable, parseRangeHeader, parseContentRangeHeader, parseAcceptRangesHeader, toRangeHeader, toAcceptRangesHeader, toContentRangeHeader, toBuilder, HeaderPageableBuilder, nextPage, lastPage, firstPage, previousPage} from "./HeaderPageable"
