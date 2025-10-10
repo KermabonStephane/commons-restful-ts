@@ -50,9 +50,9 @@ export function parseContentRangeHeader(header: string): HeaderPageable {
     const parts = header.substring(CONTENT_RANGE_HEADER_NAME.length + 2).split(" ");
     const elementName = parts[0];
     const range = parts[1].split(/[-/]/);
-    const start = parseInt(range[0], 10);
-    const end = parseInt(range[1], 10);
-    const total = parseInt(range[2], 10);
+    const start = Number.parseInt(range[0], 10);
+    const end = Number.parseInt(range[1], 10);
+    const total = Number.parseInt(range[2], 10);
     if (end <= start) {
         throw new Error(`Header '${header}' is not in the correct format. The end must be greater than the start`);
     }
@@ -75,7 +75,7 @@ export function parseAcceptRangesHeader(header: string): HeaderPageable {
         throw new Error("Header cannot be null or empty");
     }
     if (!ACCEPT_RANGES_HEADER_PATTERN.test(header)) {
-        throw new Error(`Header \'${header}\' is not in the correct format. The format must be like \'Accept-Ranges: elements\'`);
+        throw new Error(`Header '${header}' is not in the correct format. The format must be like 'Accept-Ranges: elements'`);
     }
 
     const elementName = header.substring(ACCEPT_RANGES_HEADER_NAME.length + 2);
@@ -138,10 +138,10 @@ export function toBuilder(header?: HeaderPageable): HeaderPageableBuilder {
         },
         build(): HeaderPageable {
             return {
-                elementName: props.elementName!,
-                page: props.page!,
-                size: props.size!,
-                total: props.total!,
+                elementName: props.elementName,
+                page: props.page,
+                size: props.size,
+                total: props.total,
             };
         }
     };
