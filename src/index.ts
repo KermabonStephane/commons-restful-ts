@@ -1,1 +1,1 @@
-export {HeaderPageable, parseRangeHeader} from "./HeaderPageable"
+export {HeaderPageable, parseRangeHeader, parseContentRangeHeader} from "./HeaderPageable"
