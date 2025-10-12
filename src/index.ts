@@ -1,1 +1,2 @@
 export {HeaderPageable, parseRangeHeader, parseContentRangeHeader, parseAcceptRangesHeader, toRangeHeader, toAcceptRangesHeader, toContentRangeHeader, toBuilder, HeaderPageableBuilder, nextPage, lastPage, firstPage, previousPage} from "./HeaderPageable"
+export {parse, Sort, SortOrder} from "./Sort"
