@@ -36,7 +36,7 @@ switch (operatorAsString) {
         return FilterOperator.IN;
     default:
         throw new Error(`Bad format of the filters string '${operatorAsString}'`);
-}
+}}
 
 function parseFilter(filterAsString: string): Filter {
     const strings = filterAsString.split(" ");
